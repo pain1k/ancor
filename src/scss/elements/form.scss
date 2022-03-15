@@ -1,0 +1,97 @@
+.form{
+  &-control{
+  border: none;
+  border-bottom: 1px solid #a9a9a9;
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 22px;
+  border-radius: 0;
+  &::placeholder{
+    color: #a9a9a9;
+  }
+  &:focus{
+    box-shadow: none;
+    border-bottom-color:#a9a9a9 ;
+  }
+  
+  }
+  &-select{
+    border: none;
+    border-bottom: 1px solid #a9a9a9;
+    margin-bottom: 20px;
+    color: #000;
+    font-size: 18px;
+    line-height: 22px;
+    border-radius: 0;
+    &:focus{
+      border-block-color: #a9a9a9;
+      box-shadow: none;
+    }
+  }
+}
+.btn{
+  &-primary{
+    background-color: #F54D2E;
+    border-radius: 0;
+    border: none;
+    width: 100%;
+    max-width: 260px;
+    margin-top: 37px;
+    font-size: 18px;
+    line-height: 22px;
+    height: 50px;
+    @media(max-width:1850px){
+      height: 62px;
+    }
+    @media(max-width:1440px){
+      height: 52px;
+    }
+    @media(max-width:1280px){
+      height: 47px;
+    }
+    &:hover{
+      background: #F54D2E;
+    }
+    &:focus{
+      border:none;
+      background:#F54D2E;
+      box-shadow:none;
+    }
+    &:active{
+      background: #F54D2E;
+    }
+  }
+}
+#sendpromo{
+  display: flex;
+  justify-content: space-between;
+  @media(max-width:767px){
+    flex-direction: column;
+  }
+  & div{
+    width: 100%;
+    max-width: 492px;
+    @media(max-width:1440px){
+      max-width: 369px;
+    }
+    @media(max-width:1280px){
+      max-width: 328px;
+    }
+    & input{
+      margin: 0;
+      height: 70px;
+      background: none;
+    @media(max-width:1440px){
+      height: 53px;
+    }
+    @media(max-width:1280px){
+      height: 47px;
+    }
+    }
+  }
+  & button{
+    max-width: 350px;
+    padding: 15px 0;
+    margin-top: 0;
+  }
+}

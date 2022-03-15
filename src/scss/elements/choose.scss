@@ -1,0 +1,127 @@
+.choose{
+  background: url(../images/bg21.png);
+  background-position-y: 1px;
+  background-repeat:no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  min-height: 600px;
+  height: calc(100vh - 176px);
+  &-wrapper{
+    height: calc(100vh - 176px);
+    &-logo{
+    margin-top: 50px;
+    margin-bottom: 70px;
+    }
+    &-title{
+    font-size: 70px;
+    line-height: 70px;
+    color: #000;
+    font-weight: 900;
+    margin-bottom: 136px;
+    max-width: 960px;
+    &__info{
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+    }
+    &-targets{
+      display: flex;
+      justify-content: space-between;
+      margin-top: auto;
+      // margin-bottom: 30%;
+    }
+  }
+  &-success{
+    background: url(../images/bg2.png);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    @media(max-width:839px){
+      height: 100vh !important;
+    }
+  }
+}
+.help{
+  background: #F54D2E;
+  padding: 50px 0;
+  min-height: 176px;
+  height: auto;
+  &-wrapper{
+    &__title{
+      color: #fff;
+      font-size: 20px;
+      line-height: 22px;
+      padding: 0 5%;
+      &--help {
+        color: #000;
+        display: none;
+        @media (max-width:839px){
+          display: block
+        }
+      }
+    }
+    &__link{
+      font-style:italic;
+      color: #fff;
+      &:hover{
+        color:#fff
+      }
+    }
+  }
+}
+@media (max-width:991px){
+  .choose-wrapper-title{
+    font-size: 60px;
+    line-height: 60px;
+  }
+}
+@media (max-width:839px){
+  .choose{
+    height: auto;
+    &-wrapper{
+    height: auto;
+    &-title{
+    height: auto;
+    margin-bottom: 34px;
+  }
+}
+}
+}
+@media (max-width:767px){
+  .choose{
+    background: url(../images/bgmob-activities.png);
+  &-wrapper{
+    &-title{
+      font-size: 35px;
+      line-height: 35px;
+      padding-left: 12px;
+      max-width: 250px;
+    }
+    &-logo{
+      margin-bottom: 45px;
+      margin-top: 0;
+      text-align: center;
+      padding: 20px 0;
+      width: 100%;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.18);
+      background: #fff;
+    }
+  }
+  &-targets{
+    margin-top: 0;
+  }
+}
+#activities{
+  background: url(../images/mobchoose.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  padding-bottom: 20px;
+}
+}
+@media (max-width:767px) {
+  #activities .container{
+    padding: 0;
+  }
+
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбери мишень</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="https://live.proofix.tv/tildaNikita/ancor-fonts/fonts.css">
+    <script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossOrigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+</head>
+<body>
+<main>
+    <section class="choose" id="activities">
+        <div class="choose-wrapper-logo mobile">
+            <svg width="100" height="20" viewBox="0 0 100 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_86_450)">
+                    <path d="M71.9108 -4.51413e-05C70.6404 -0.0255736 69.3778 0.205297 68.1969 0.679042C67.016 1.15279 65.9406 1.85987 65.0338 2.75884C64.127 3.65782 63.4069 4.73059 62.9159 5.91428C62.4249 7.09797 62.1727 8.36877 62.1742 9.65216C62.1742 15.0465 66.4467 19.242 71.9108 19.242C77.3748 19.242 81.6473 15.0225 81.6473 9.65216C81.6488 8.36877 81.3967 7.09797 80.9056 5.91428C80.4146 4.73059 79.6946 3.65782 78.7877 2.75884C77.8809 1.85987 76.8055 1.15279 75.6246 0.679042C74.4438 0.205297 73.1811 -0.0255736 71.9108 -4.51413e-05V-4.51413e-05ZM71.9108 13.958C69.5372 13.958 67.7949 12.1455 67.7949 9.64256C67.7949 7.13961 69.5656 5.30315 71.9108 5.30315C74.2559 5.30315 76.0313 7.16838 76.0313 9.64256C76.0313 12.1168 74.2986 13.958 71.9108 13.958V13.958Z" fill="#F54D2E"/>
+                    <path d="M13.6387 1.96106C13.0558 1.31524 12.3407 0.805293 11.5431 0.466638C10.7454 0.127982 9.88439 -0.0312662 9.0197 -6.68157e-05C3.96392 -6.68157e-05 1.07524e-06 4.23866 1.07524e-06 9.65214C-0.0144008 12.0251 0.816231 14.3242 2.34038 16.1301C3.20888 17.12 4.27621 17.9117 5.47129 18.4524C6.66638 18.9931 7.9618 19.2705 9.2713 19.266C10.8901 19.266 12.7083 18.5659 13.6387 17.348V18.9207H19.079V0.378737H13.6387V1.96106ZM9.73653 13.9484C7.36293 13.9484 5.6207 12.1359 5.6207 9.63296C5.6207 7.13 7.39141 5.29355 9.73653 5.29355C12.0817 5.29355 13.8524 7.15877 13.8524 9.63296C13.8524 12.1071 12.1244 13.958 9.73653 13.958V13.9484Z" fill="#F54D2E"/>
+                    <path d="M100 0.364258H93.3539L90.2635 4.81396V0.364258H84.6428V18.9063H90.2635V7.02922H95.3762L100 0.364258Z" fill="#F54D2E"/>
+                    <path d="M54.2749 13.9579C51.7209 13.9579 49.9407 12.1886 49.9407 9.64244C49.9233 9.07391 50.0202 8.50772 50.2254 7.97804C50.4307 7.44837 50.7401 6.96622 51.1349 6.56066C51.5298 6.15511 52.0019 5.83458 52.5228 5.61843C53.0437 5.40228 53.6026 5.29499 54.1657 5.30303C55.4124 5.31088 56.606 5.81381 57.4887 6.70316L60.5317 2.32058C58.7436 0.811353 56.4864 -0.0136695 54.1562 -0.00975174C48.6399 -0.00975174 44.3152 4.22896 44.3152 9.64244C44.3152 15.0559 48.5307 19.2323 54.123 19.2323C56.5825 19.3115 58.9801 18.4443 60.8308 16.8061L57.7546 12.3756C56.8469 13.3462 55.5961 13.9149 54.2749 13.9579Z" fill="#F54D2E"/>
+                    <path d="M34.1609 0C32.5706 0 29.8884 0.776773 28.939 1.95633V0.36442H23.5082V18.9064H29.1241V7.16842C29.587 6.61015 30.1609 6.15645 30.8087 5.83676C31.4564 5.51707 32.1635 5.33854 32.8839 5.31278C33.7243 5.28092 34.5437 5.58204 35.1673 6.1519C35.6136 6.60262 36.0693 7.30269 36.0693 9.11038V18.9064H41.6853V7.03416C41.6853 2.31595 38.3052 0 34.1609 0Z" fill="#F54D2E"/>
+                </g>
+                <defs>
+                    <clipPath id="clip0_86_450">
+                        <rect width="100" height="19.2661" fill="white"/>
+                    </clipPath>
+                </defs>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="choose-wrapper d-flex flex-column">
+                <div class="choose-wrapper-logo desktop">
+                    <svg width="155" height="29" viewBox="0 0 155 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M111.462 3.31737e-06C109.493 -0.038423 107.536 0.309091 105.705 1.02219C103.875 1.73529 102.208 2.79962 100.802 4.15279C99.3968 5.50596 98.2807 7.12074 97.5196 8.90248C96.7586 10.6842 96.3677 12.5971 96.3701 14.5289C96.3701 22.6486 102.992 28.9639 111.462 28.9639C119.931 28.9639 126.553 22.6125 126.553 14.5289C126.556 12.5971 126.165 10.6842 125.404 8.90248C124.643 7.12074 123.527 5.50596 122.121 4.15279C120.715 2.79962 119.049 1.73529 117.218 1.02219C115.388 0.309091 113.431 -0.038423 111.462 3.31737e-06ZM111.462 21.0102C107.783 21.0102 105.082 18.282 105.082 14.5144C105.082 10.7469 107.827 7.98258 111.462 7.98258C115.097 7.98258 117.849 10.7902 117.849 14.5144C117.849 18.2387 115.163 21.0102 111.462 21.0102Z" fill="#F54D2E"/>
+                        <path d="M21.14 2.95201C20.2365 1.97989 19.1281 1.2123 17.8917 0.702543C16.6554 0.192786 15.3208 -0.0469206 13.9805 4.19598e-05C6.14406 4.19598e-05 -1.96957e-05 6.38034 -1.96957e-05 14.5289C-0.0223425 18.1008 1.26514 21.5615 3.62756 24.2798C4.97374 25.7698 6.6281 26.9615 8.48048 27.7754C10.3329 28.5893 12.3408 29.0068 14.3705 29C16.8796 29 19.6978 27.9463 21.14 26.113V28.4804H29.5725V0.570232H21.14V2.95201ZM15.0916 20.9958C11.4125 20.9958 8.71206 18.2676 8.71206 14.5C8.71206 10.7325 11.4567 7.96819 15.0916 7.96819C18.7265 7.96819 21.4711 10.7758 21.4711 14.5C21.4711 18.2243 18.7928 21.0102 15.0916 21.0102V20.9958Z" fill="#F54D2E"/>
+                        <path d="M155 0.548523H144.699L139.908 7.24638V0.548523H131.196V28.4587H139.908V10.5809H147.833L155 0.548523Z" fill="#F54D2E"/>
+                        <path d="M84.126 21.0102C80.1673 21.0102 77.408 18.3469 77.408 14.5144C77.3811 13.6586 77.5313 12.8064 77.8494 12.0091C78.1676 11.2118 78.6471 10.486 79.2592 9.8756C79.8712 9.26514 80.603 8.78267 81.4104 8.45731C82.2178 8.13195 83.084 7.97045 83.9568 7.98256C85.8892 7.99437 87.7394 8.7514 89.1075 10.0901L93.8241 3.49326C91.0526 1.22151 87.5539 -0.0203416 83.9421 -0.0144444C75.3919 -0.0144444 68.6886 6.36583 68.6886 14.5144C68.6886 22.663 75.2227 28.9495 83.8906 28.9495C87.7029 29.0686 91.4191 27.7633 94.2877 25.2974L89.5196 18.6284C88.1126 20.0894 86.1739 20.9455 84.126 21.0102Z" fill="#F54D2E"/>
+                        <path d="M52.9494 0C50.4844 0 46.3271 1.16923 44.8554 2.94474V0.548539H36.4377V28.4587H45.1424V10.7902C45.8598 9.94984 46.7494 9.26692 47.7534 8.78572C48.7574 8.30451 49.8533 8.03578 50.9701 7.997C52.2727 7.94904 53.5427 8.4023 54.5094 9.26007C55.201 9.93852 55.9074 10.9923 55.9074 13.7133V28.4587H64.6122V10.5881C64.6122 3.48605 59.3731 0 52.9494 0Z" fill="#F54D2E"/>
+                    </svg>
+                </div>
+                <div class="choose-wrapper-title">
+                    <p class="choose-wrapper-title__info">
+                        <span id="userName"></span>, выбери подарок
+                    </p>
+                </div>
+                <p class="help-wrapper__title help-wrapper__title--help">
+                    &larr;&nbsp;&nbsp;Листай&nbsp;&nbsp;&rarr;
+                </p>
+                <div class="choose-wrapper-targets center">
+                    <div class="animation-block desktop " id="animationBlock" onclick="setPromoCode()">
+                        <div id="startStage" class="animation-start ">
+                            <img id="animate" src="./src/images/close.png">
+                        </div>
+                    </div>
+                    <div class="animation-block desktop" id="animationBlock1" onclick="setPromoCode()">
+                        <div id="startStage1" class="animation-start ">
+                            <img id="animationSecond" src="./src/images/close.png">
+                        </div>
+                    </div>
+                    <div class="animation-block desktop" id="animationBlock2" onclick="setPromoCode()">
+                        <div id="startStage2" class="animation-start">
+                            <img id="animation" src="./src/images/close.png">
+                        </div>
+                    </div>
+                    <div class="animation-block mobile" id="animationBlockmob" onclick="setPromoCode()">
+                        <div id="startStagemob" class="animation-start ">
+                            <img id="animatemob" src="./src/images/close.png">
+                        </div>
+                    </div>
+                    <div class="animation-block mobile" id="animationBlock1mob" onclick="setPromoCode()">
+                        <div id="startStage1mob" class="animation-start ">
+                            <img id="animationSecondmob" src="./src/images/close.png">
+                        </div>
+                    </div>
+                    <div class="animation-block mobile" id="animationBlock2mob" onclick="setPromoCode()">
+                        <div id="startStage2mob" class="animation-start">
+                            <img id="animationmob" src="./src/images/close.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section class="help">
+        <div class="help-wrapper text-center container">
+            <p class="help-wrapper__title">
+                Техническая поддержка.
+            </p>
+            <p class="help-wrapper__title">
+                <a href="tel:+74951183418" class="help-wrapper__link">+7 (495) 118-34-18</a> или напишите в <a
+                    href="/chat" target="_blank" class="help-wrapper__link">чат</a>
+            </p>
+        </div>
+    </section>
+</main>
+<script>
+    let startStage = document.getElementById('startStage')
+    let brokenStage = document.getElementById('brokenStage')
+    let salute = document.getElementById('salute')
+    let animationBlock = document.getElementById('animationBlock')
+    let finalStage = document.getElementById('finalStage')
+    startStage.addEventListener('click', (e) => {
+        if (!animationBlock.classList.contains('active')) {
+            animationBlock.classList.add('active')
+            $('#animate').css('transform', 'translate(-13%,-32%)');
+            $('#animate').attr('src', './src/images/anim.gif');
+        }
+    })
+    let startStage1 = document.getElementById('startStage1')
+    let brokenStage1 = document.getElementById('brokenStage1')
+    let salute1 = document.getElementById('salute1')
+    let animationBlock1 = document.getElementById('animationBlock1')
+    let finalStage1 = document.getElementById('finalStage1')
+    startStage1.addEventListener('click', (e) => {
+        if (!animationBlock1.classList.contains('active')) {
+            animationBlock1.classList.add('active')
+            $('#animationSecond').attr('src', './src/images/anim.gif');
+            $('#animationSecond').css('transform', 'translate(-13%,-32%)');
+
+            // startStage1.classList.add('animation-hide')
+            // brokenStage1.classList.add('animation-show')
+            // setTimeout(() => {
+            //   brokenStage1.classList.remove('animation-show')
+            //   brokenStage1.classList.add('animation-hide')
+            //   finalStage1.classList.add('animation-show')
+            //   salute1.classList.add('animation-salute-show')
+            // }, 300)
+        }
+    })
+    let startStage2 = document.getElementById('startStage2')
+    let brokenStage2 = document.getElementById('brokenStage2')
+    let salute2 = document.getElementById('salute2')
+    let animationBlock2 = document.getElementById('animationBlock2')
+    let finalStage2 = document.getElementById('finalStage2')
+    let anim = document.getElementById('animation')
+    startStage2.addEventListener('click', (e) => {
+        if (!animationBlock2.classList.contains('active')) {
+            animationBlock2.classList.add('active')
+            $('#animation').attr('src', './src/images/anim.gif');
+            $('#animation').css('transform', 'translate(-13%,-32%)');
+        }
+    })
+    let startStagemob = document.getElementById('startStagemob')
+    let animationBlockmob = document.getElementById('animationBlockmob')
+    startStagemob.addEventListener('click', (e) => {
+        if (!animationBlockmob.classList.contains('active')) {
+            animationBlockmob.classList.add('active')
+            $('#animatemob').attr('src', './src/images/anim.gif');
+            // $('#animate').css('transform', 'translate(-13%,-32%)');
+            $('#animatemob').css('transform', 'translate(0,-13%)');
+            $('.help-wrapper__title--help').css('opacity', '0');
+        }
+    })
+    let startStage1mob = document.getElementById('startStage1mob')
+    let animationBlock1mob = document.getElementById('animationBlock1mob')
+    startStage1mob.addEventListener('click', (e) => {
+        if (!animationBlock1mob.classList.contains('active')) {
+            animationBlock1mob.classList.add('active')
+            $('#animationSecondmob').attr('src', './src/images/anim.gif');
+            // $('#animate').css('transform', 'translate(-13%,-32%)');
+            $('#animationSecondmob').css('transform', 'translate(0,-13%)');
+            $('.help-wrapper__title--help').css('opacity', '0');
+        }
+    })
+    let startStage2mob = document.getElementById('startStage2mob')
+    let animationBlock2mob = document.getElementById('animationBlock2mob')
+    startStage2mob.addEventListener('click', (e) => {
+        if (!animationBlock2mob.classList.contains('active')) {
+            animationBlock2mob.classList.add('active')
+            $('#animationmob').attr('src', './src/images/anim.gif');
+            // $('#animate').css('transform', 'translate(-13%,-32%)');
+            $('#animationmob').css('transform', 'translate(0,-13%)');
+            $('.help-wrapper__title--help').css('opacity', '0');
+
+        }
+    })
+</script>
+<script>
+    $('.center').slick({
+        responsive: [
+            {
+                breakpoint: 3992,
+                settings: 'unslick'
+            },
+            {
+                breakpoint: 839,
+                settings: {
+                    arrows: false,
+                    infinite: false,
+                    dots: true,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 2
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    arrows: false,
+                    dots: true,
+                    centerMode: true,
+                    centerPadding: '40px',
+                    slidesToShow: 1,
+                    infinite: false
+                }
+            }
+        ]
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#userName').html(Cookies.get('nameUser'));
+        if (!Cookies.get('idUser')) {
+            location.href = '/';
+        } else if (Cookies.get('promo') === 'Y') {
+            location.href = '/success';
+        }
+    });
+</script>
+<script src="system/js/choose.js"></script>
+<script>
+    const socket = io("live.proofix.tv", {
+        transports: ["websocket"],
+        path: "/chat",
+        query: {
+            "eventName": "ancor_march"
+        }
+    });
+    socket.on("connect", () => {
+        socket.emit("uid", Cookies.get('idUser'))
+    });
+</script>
+</body>
+</html>
